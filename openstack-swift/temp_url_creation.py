@@ -32,7 +32,7 @@ def main():
 
 
     expires = int(time() + options.expiration)
-    hmac_body = '%sn%sn%s' % (options.method, expires, options.uri_path)
+    hmac_body = '%s\n%s\n%s' % (options.method, expires, options.uri_path)
     sig = hmac.new(options.temp_url_key, hmac_body, sha1).hexdigest()
 
     print "\nCloudFiles Temporary URL:"
